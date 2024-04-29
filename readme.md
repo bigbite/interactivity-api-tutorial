@@ -403,7 +403,7 @@ You should now have notification blocks that you can expand and close, the readi
 It's obvious that this simple example could be replicated eaily with some custom JavaScript, however using the interactivity API would provide benefits at scale and the extensive directives supplied with the API could significantly reduce the amount of custom JavaScript you need to write on the front end to respond to common user interactions. Dom manipulation can often be difficult to maintain and embracing the interacrtivity API could reolve many pain points. 
 
 
-Further Reading:
+## Further Reading:
 
  - [Official Docs](https://developer.wordpress.org/block-editor/reference-guides/packages/packages-interactivity/)
  - [Announcement Post](https://make.wordpress.org/core/2024/02/19/merge-announcement-interactivity-api/)
