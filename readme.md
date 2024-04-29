@@ -191,6 +191,8 @@ In the WordPress dashboard:
 
 You should see the toggle animate, so in this simple example you have some basic functionality that toggles the class on an element basedd on the value of some global state.
 
+[Demo](http://bigbite.im/i/jgh0yT)
+
 ### Step 5 - Add another block 
 
 We're now going to add another block to our project that will also use the global state. For the sake of this tutoiral we're going to create a basic 'notification' block that will change it's styles depending on the global state. It will also toggle it's own state when clicked
