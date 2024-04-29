@@ -17,8 +17,8 @@ $wrapper_attributes = get_block_wrapper_attributes();
 
 <div 
     <?php echo $wrapper_attributes; ?>
-    data-wp-interactive="bigbite"
-    data-wp-class--isDark="state.isDark"
+    data-wp-interactive="reading-mode"
+    data-wp-class--isDark="state.isDarkMode"
     >
     <div class="mode-button">
         <input class="mode-button-input" type="checkbox" id="switch<?php echo $unique_id_append; ?>" name="mode">

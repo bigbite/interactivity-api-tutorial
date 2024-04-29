@@ -62,22 +62,20 @@ var __webpack_exports__ = {};
   \*********************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_interactivity__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/interactivity */ "@wordpress/interactivity");
-console.log('loaded');
 /**
  * WordPress dependencies
  */
 
 const {
   state
-} = (0,_wordpress_interactivity__WEBPACK_IMPORTED_MODULE_0__.store)('bigbite', {
+} = (0,_wordpress_interactivity__WEBPACK_IMPORTED_MODULE_0__.store)('reading-mode', {
   state: {
     isDark: false
   },
   actions: {
     setMode: () => {
       // state is global
-      console.log('is dark');
-      state.isDark = !state.isDark;
+      state.isDarkMode = !state.isDarkMode;
     }
   }
 });

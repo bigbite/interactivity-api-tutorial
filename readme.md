@@ -50,20 +50,22 @@ The interactivy API uses 'stores' to provide actions, essentially just functions
 As we're going to set a reading mode that many other blocks might need to react to we can use state in this instance. Replace the existing `view.js` file with the following to setup the store and add some default state:
 
 ```
+/**
+ * WordPress dependencies
+ */
 import { store, getContext } from '@wordpress/interactivity';
 
- const { state } = store( "bigbite", {
+const { state } = store( 'reading-mode', {
 	state: {
-	  isDark: false,
-	},
-	actions: {
-	  setMode: () => {
-		// state is global
-		console.log('is dark');
-		state.isDark = !state.isDark;
+		isDark: false,
 	  },
-	},
-  });
+	  actions: {
+		setMode: () => {
+		  // state is global
+		  state.isDarkMode = !state.isDarkMode;
+		},
+	  },
+} );
 ```
 
 All we're doing above is setting state for `isDark` and making it false by default. We're also setting an action to toggle the `isDark` state when the user interacts with the toggle.
@@ -73,13 +75,19 @@ All we're doing above is setting state for `isDark` and making it false by defau
 Open the `render.php` inside the block `src` folder and replace the markup with the following code, this renders an input and a label for the mode toggle, we will style this later
 
 ```
+<?php
+// Generate unique id for aria-controls.
+$unique_id          = wp_unique_id('p-');
+$wrapper_attributes = get_block_wrapper_attributes();
+?>
+
 <div 
-	<?php echo $wrapper_attributes; ?>
-	>
-	<div class="mode-button">
-		<input class="mode-button-input" type="checkbox" id="switch<?php echo $unique_id_append; ?>" name="mode">
-		<label for="switch<?php echo $unique_id_append; ?>">Toggle</label>
-	</div>
+    <?php echo $wrapper_attributes; ?>
+    >
+    <div class="mode-button">
+        <input class="mode-button-input" type="checkbox" id="switch<?php echo $unique_id_append; ?>" name="mode">
+        <label for="switch<?php echo $unique_id_append; ?>">Toggle</label>
+    </div>
 </div>
 ```
 
@@ -95,8 +103,8 @@ $wrapper_attributes = get_block_wrapper_attributes();
 
 <div 
     <?php echo $wrapper_attributes; ?>
-    data-wp-interactive="bigbite"
-    data-wp-class--isDark="state.isDark"
+    data-wp-interactive="reading-mode"
+    data-wp-class--isDark="state.isDarkMode"
     >
     <div class="mode-button">
         <input class="mode-button-input" type="checkbox" id="switch<?php echo $unique_id_append; ?>" name="mode">
@@ -121,7 +129,6 @@ setMode: () => {
 We won't go through the code here, just add this to the `style.scss` file for the block and you should have a styled toggle:
 
 ```
-
 .wp-block-bigbite-reading-mode input[type=checkbox] {
 	height: 0;
 	width: 0;
@@ -170,7 +177,6 @@ We won't go through the code here, just add this to the `style.scss` file for th
 	-o-transform: translateX(-100%);
 	transform: translateX(-100%);
   }
-
 ```
 
 ### Step 4 - Test the block
@@ -228,52 +234,47 @@ Now add the render for the block, inside the `render.php` for the new block:
 
 ```
 <?php
-/**
- * PHP file to use when rendering the block type on the server to show on the front end.
- *
- */
-
 // Generate unique id for aria-controls.
-$unique_id = wp_unique_id( 'p-' );
-
+$unique_id          = wp_unique_id('p-');
+$wrapper_attributes = get_block_wrapper_attributes();
 ?>
 
 <div 
-	data-wp-interactive="readingmodes"
-	data-wp-class--isDark="state.isDark"
-	data-wp-bind--hidden="!state.isNotificationsHidden">
-	<div
-		<?php echo get_block_wrapper_attributes(); ?>
-		data-wp-interactive="notifications"
-		data-wp-context='{ "isOpen": false }'
-		data-wp-watch="callbacks.logIsOpen"
-	>
-		<div class="teaser">
-			<div>
-				<p><?php echo esc_html( __( 'Notification Block', 'bigbite' ) ); ?></p>
-			</div>
-			<button
-				data-wp-on--click="actions.toggle"
-				data-wp-bind--aria-expanded="context.isOpen"
-				data-wp-class--isOpen="context.isOpen"
-				aria-controls="<?php echo esc_attr( $unique_id ); ?>"
-			>
-			<svg width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-				<path d="M7 10L12 15L17 10" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-			</svg>
-			</button>
-		</div>
+    data-wp-interactive="reading-mode"
+    data-wp-class--isDark="state.isDarkMode"
+    >
+    <div
+        <?php echo get_block_wrapper_attributes(); ?>
+        data-wp-interactive="notification"
+        data-wp-context='{ "isOpen": false }'
+        data-wp-watch="callbacks.logIsOpen"
+    >
+        <div class="teaser">
+            <div>
+                <p><?php echo esc_html(__('Notification Block', 'bigbite')); ?></p>
+            </div>
+            <button
+                data-wp-on--click="actions.toggle"
+                data-wp-bind--aria-expanded="context.isOpen"
+                data-wp-class--isOpen="context.isOpen"
+                aria-controls="<?php echo esc_attr($unique_id); ?>"
+            >
+            <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M7 10L12 15L17 10" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            </button>
+        </div>
 
-		<div
-			id="<?php echo esc_attr( $unique_id ); ?>"
-			data-wp-bind--hidden="!context.isOpen"
-			class="content"
-		>
-			<?php
-				echo wp_kses_post( html_entity_decode( $content ) );
-			?>
-		</div>
-	</div>
+        <div
+                id="<?php echo esc_attr($unique_id); ?>"
+                data-wp-bind--hidden="!context.isOpen"
+                class="content"
+            >
+                <?php
+                    echo wp_kses_post(html_entity_decode($content));
+                ?>
+            </div>
+    </div>
 </div>
 ```
 
@@ -300,12 +301,16 @@ The notifcation content uses a bind directive to toggle it's visibility dependin
 </div>
 ```
 
-
-
 Add some styles for the block in the `styles.scss` for the block:
 
 ```
- .wp-block-bigbite-notification {
+.wp-block-bigbite-notification button {
+	border: 0;
+	outline-width: 0;
+	background: 0;
+}
+
+.wp-block-bigbite-notification {
 	width: 100%;
 	margin-bottom: 20px;
 	padding: 0 20px;
@@ -365,7 +370,7 @@ export default function Edit( { attributes, setAttributes } ) {
 
 Finally add a `save.js` file and include it in the index.js so that the inner block content is saved:
 
-save.js:
+`save.js`:
 
 ```
 import { InnerBlocks } from '@wordpress/block-editor';
@@ -375,7 +380,7 @@ export default function save() {
 }
 ```
 
-index.js:
+`index.js`:
 ```
 import Save from './save';
 

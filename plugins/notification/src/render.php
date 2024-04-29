@@ -17,8 +17,8 @@ $wrapper_attributes = get_block_wrapper_attributes();
 ?>
 
 <div 
-    data-wp-interactive="bigbite"
-    data-wp-class--isDark="state.isDark"
+    data-wp-interactive="reading-mode"
+    data-wp-class--isDark="state.isDarkMode"
     >
     <div
         <?php echo get_block_wrapper_attributes(); ?>

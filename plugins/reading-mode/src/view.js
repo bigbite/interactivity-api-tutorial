@@ -1,18 +1,16 @@
-console.log('loaded');
 /**
  * WordPress dependencies
  */
 import { store, getContext } from '@wordpress/interactivity';
 
-const { state } = store( 'bigbite', {
+const { state } = store( 'reading-mode', {
 	state: {
 		isDark: false,
 	  },
 	  actions: {
 		setMode: () => {
 		  // state is global
-		  console.log('is dark');
-		  state.isDark = !state.isDark;
+		  state.isDarkMode = !state.isDarkMode;
 		},
 	  },
 } );
