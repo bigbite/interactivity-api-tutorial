@@ -12,7 +12,7 @@ A local development environment - [WP ENV](https://developer.wordpress.org/block
 
 We're going to make a simple reading mode block, in this example it simply sets a `dark mode` state that, we're also going to build a 'notification' block that changes it's own appearance depending on the reading mode state and also handles whether it is expanded or not. 
 
-![Demo](http://bigbite.im/i/1d5G8f)
+[Demo](http://bigbite.im/i/1d5G8f)
 
 ### Step 1 - Setup the skeleton block
 
