@@ -2,10 +2,14 @@
 
 Basic WordPress Interactivity API Demo
 
+## Demo code
+
+All code from the tutorial is available here: [Interactvitiy API Demo](https://github.com/bigbite/interactivity-api-tutorial)
+
 ### Prerequisites
 
 WordPress 6.5 +\
-A local development environment - [WP ENV](https://developer.wordpress.org/block-editor/getting-started/devenv/get-started-with-wp-env/) ,[Local](https://localwp.com/)\
+A local development environment - suggestions: [WP ENV](https://developer.wordpress.org/block-editor/getting-started/devenv/get-started-with-wp-env/), [Local](https://localwp.com/)
 
 ### What are we building?
 
@@ -43,7 +47,7 @@ The block should be scaffolded and recognise your changes. You should see a `vie
 
 The interactivy API uses 'stores' to provide actions, essentially just functions that will run when a user interaction occurs. The store can also be used to set `state`, the naming here is confusing if you've used state in other instances such as react and various other libraries. `state` in the context of the interactivity API actually just sets values that the full page may need access to. It might be better to think of this as global state.
 
-As we're going to set a reading mode that many other blocks might need to react to we can use state in this instance. add the following to the `view.js` file to setup the store and add some default state
+As we're going to set a reading mode that many other blocks might need to react to we can use state in this instance. Replace the existing `view.js` file with the following to setup the store and add some default state:
 
 ```
 import { store, getContext } from '@wordpress/interactivity';
@@ -401,3 +405,5 @@ It's obvious that this simple example could be replicated eaily with some custom
 
 Further Reading:
 
+ - [Official Docs](https://developer.wordpress.org/block-editor/reference-guides/packages/packages-interactivity/)
+ - [Announcement Post](https://make.wordpress.org/core/2024/02/19/merge-announcement-interactivity-api/)
