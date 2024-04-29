@@ -10,9 +10,9 @@ A local development environment - [WP ENV](https://developer.wordpress.org/block
 
 ### What are we building?
 
-We're going to make a simple reading mode block, in this example it simply sets a `dark mode` state that other block can choose to subscribe to but in a more complex example you might want to produce an option to change the page layout, hide certain blocks, create an `ad free` mode to hide any ads.
+We're going to make a simple reading mode block, in this example it simply sets a `dark mode` state that, we're also going to build a 'notification' block that changes it's own appearance depending on the reading mode state and also handles whether it is expanded or not. 
 
-
+![Demo](http://bigbite.im/i/1d5G8f)
 
 ### Step 1 - Setup the skeleton block
 
