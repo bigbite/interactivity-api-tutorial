@@ -1,0 +1,57 @@
+/*!***************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/style.scss ***!
+  \***************************************************************************************************************************************************************************************************************************************/
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+.wp-block-bigbite-notification button {
+  border: 0;
+  outline-width: 0;
+  background: 0;
+}
+
+.wp-block-bigbite-notification {
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 0 20px;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0px 15px 19px 0px rgba(0, 0, 0, 0.2);
+}
+
+.wp-block-bigbite-notification .content {
+  padding-bottom: 20px;
+}
+
+.wp-block-bigbite-notification .teaser {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.wp-block-bigbite-notification button.isopen {
+  transform: rotate(180deg);
+}
+
+.isdark .wp-block-bigbite-notification {
+  background-color: black;
+  color: white;
+}
+
+.isdark .wp-block-bigbite-notification button {
+  background: none;
+}
+
+.isdark .wp-block-bigbite-notification p {
+  background: black;
+  color: white;
+}
+
+.isdark .wp-block-bigbite-notification button svg path {
+  stroke: white;
+}
+
+/*# sourceMappingURL=style-index.css.map*/
