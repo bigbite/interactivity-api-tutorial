@@ -1,9 +1,12 @@
 ## Interactivity API Example
 
+Basic WordPress Interactivity API Demo
+
 ### Prerequisites
 
+NPM
 WordPress 6.5 +
-A local development environment - https://localwp.com/, 
+A local development environment - [WP ENV](https://developer.wordpress.org/block-editor/getting-started/devenv/get-started-with-wp-env/) ,[Local](https://localwp.com/), 
 
 ### What are we building?
 
@@ -341,7 +344,7 @@ Add some styles for the block in the `styles.scss` for the block:
 }
 ```
 
-TO allow you to add inner blocks to the notification replace the contents of the `src/edit.js` for your block, this will allow you to add some custom text for your notification content:
+To allow you to add inner blocks to the notification replace the contents of the `src/edit.js` for your block, this will allow you to add some custom text for your notification content:
 
 ```
 import { useBlockProps, InnerBlocks } from '@wordpress/block-editor';
