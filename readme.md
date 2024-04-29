@@ -4,9 +4,9 @@ Basic WordPress Interactivity API Demo
 
 ### Prerequisites
 
-NPM
-WordPress 6.5 +
-A local development environment - [WP ENV](https://developer.wordpress.org/block-editor/getting-started/devenv/get-started-with-wp-env/) ,[Local](https://localwp.com/), 
+NPM\
+WordPress 6.5 +\
+A local development environment - [WP ENV](https://developer.wordpress.org/block-editor/getting-started/devenv/get-started-with-wp-env/) ,[Local](https://localwp.com/)\
 
 ### What are we building?
 
