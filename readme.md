@@ -15,6 +15,7 @@ All of the code from this tutorial is available here: [Interactvitiy API Demo](h
 ### Prerequisites
 
 WordPress 6.5 +\
+Node.js and npm\
 A local development environment - suggestions: [WP ENV](https://developer.wordpress.org/block-editor/getting-started/devenv/get-started-with-wp-env/), [Local](https://localwp.com/)
 
 ### What are we building?
