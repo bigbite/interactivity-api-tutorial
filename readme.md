@@ -1,6 +1,6 @@
 ## Tutorial: Getting Started with the Interactivity API
 
-The Interactivity API, introduced in WordPress 6.5, provides a standard way for developers to add interactions to the front end of their blocks. Here we’re going to put together a a simple example using the [create-block](https://developer.wordpress.org/block-editor/reference-guides/packages/packages-create-block/) package as it has a convenient flag for setting up interactive blocks but if you have your own build systems in place, like we do here at Big Bite, then you’ll need to make sure your blocks have the following in their `block.json`:
+The Interactivity API, introduced in WordPress 6.5, provides a standard way for developers to add interactions to the front end of their blocks. Here we’re going to put together a a simple example using the [create-block](https://developer.wordpress.org/block-editor/reference-guides/packages/packages-create-block/) package as it has a convenient template for setting up interactive blocks but if you have your own build systems in place, like we do here at Big Bite, then you’ll need to make sure your blocks have the following in their `block.json`:
 
 ```
 	"supports": {
@@ -26,7 +26,7 @@ We're going to make a simple reading mode block, in this example it simply sets 
 
 ### Step 1 - Setup the skeleton block
 
-Create a skeleton block using create block with the interactivity flag
+Create a skeleton block using create block with the interactivity template
 
 ```
 cd  {insert-local-path}/www/wp-content/plugins
