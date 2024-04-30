@@ -411,6 +411,8 @@ registerBlockType( metadata.name, {
 
 ### Step 6 - Test the blocks
 
+http://bigbite.im/v/Q1hJer
+
 - Return to the previous page in the dashboard that you were editing
 - Add some notifications blocks to the page, add some content and save the page
 - View the front end of the website
