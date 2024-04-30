@@ -125,7 +125,7 @@ $wrapper_attributes = get_block_wrapper_attributes();
 
 ```
 
-`data-wp-interactive` is a directive that enables the interactivity API for the element and it's children and the `data-wp-class` directive will add or remove a class on a HTML element. The `data-wp-on--click` directive provides the key to this simle functionality, it instruct the interactivy API to run the `setMode` function in our action everytime the element is clicked. If we look back at our `setMode` function you will notice it toggles the global `isDark` value:
+`data-wp-interactive` is a directive that enables the interactivity API for the element and it's children and the `data-wp-class` directive will add or remove a class on a HTML element. The `data-wp-on--click` directive provides the key to this simple functionality, it instruct the interactivy API to run the `setMode` function in our action everytime the element is clicked. If we look back at our `setMode` function you will notice it toggles the global `isDark` value:
 
 ```
 setMode: () => {
@@ -195,10 +195,10 @@ We won't go through the code here, just add this to the `style.scss` file for th
 In the WordPress dashboard:
 
 - Activate the block plugin in the dashboard
-- Add a page
+- Add a post / page
 - Add a reading mode block
 - Save the page
-- Open the page and click the toggle
+- View the post / page and click the toggle
 
 You should see the toggle animate, so in this simple example you have some basic functionality that toggles the class on an element basedd on the value of some global state.
 
@@ -218,7 +218,7 @@ use `notification` as the block slug when promopted and here we use `bigbite` fo
 
 Activate the plugin in the dashboard
 
-Add a store for your block, in the view.js file for the block replace the existing code with the following:
+Add a store for your block, in the `view.js` file for the block replace the existing code with the following:
 
 ```
 import { store, getContext } from '@wordpress/interactivity';
