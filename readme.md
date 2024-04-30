@@ -110,7 +110,7 @@ At the moment the render has no connection to the interactivity API, we can enab
 <?php
 
 // Generate unique id for aria-controls.
-$unique_id          = wp_unique_id('p-');
+$unique_id          = wp_unique_id('tog-');
 $wrapper_attributes = get_block_wrapper_attributes();
 ?>
 

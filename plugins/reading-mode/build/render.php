@@ -11,7 +11,7 @@
  */
 
 // Generate unique id for aria-controls.
-$unique_id          = wp_unique_id('p-');
+$unique_id          = wp_unique_id('tog-');
 $wrapper_attributes = get_block_wrapper_attributes();
 ?>
 
@@ -21,7 +21,7 @@ $wrapper_attributes = get_block_wrapper_attributes();
     data-wp-class--isDark="state.isDarkMode"
     >
     <div class="mode-button">
-        <input class="mode-button-input" type="checkbox" id="switch<?php echo $unique_id_append; ?>" name="mode">
-        <label data-wp-on--click="actions.setMode" for="switch<?php echo $unique_id_append; ?>">Toggle</label>
+        <input class="mode-button-input" type="checkbox" id="switch<?php echo $unique_id; ?>" name="mode">
+        <label data-wp-on--click="actions.setMode" for="switch<?php echo $unique_id; ?>">Toggle</label>
     </div>
 </div>
