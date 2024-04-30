@@ -18,6 +18,9 @@ WordPress 6.5 +\
 Node.js and npm\
 A local development environment - suggestions: [WP ENV](https://developer.wordpress.org/block-editor/getting-started/devenv/get-started-with-wp-env/), [Local](https://localwp.com/)
 
+> [!WARNING]
+> This demo requires WordPress 6.5 or later and will not work in previous version
+
 ### What are we building?
 
 We're going to make a simple reading mode block, in this example it simply sets a `dark mode` state that, we're also going to build a 'notification' block that changes it's own appearance depending on the reading mode state and also handles whether it is expanded or not. 
@@ -201,7 +204,7 @@ In the WordPress dashboard:
 
 You should see the toggle animate, so in this simple example you have some basic functionality that toggles the class on an element basedd on the value of some global state.
 
-[Demo](http://bigbite.im/i/jgh0yT)
+Preview of what we're building: [Demo](http://bigbite.im/i/jgh0yT)
 
 ### Step 5 - Create Notification block 
 
