@@ -48,7 +48,7 @@ cd reading-mode
 npm run start
 ```
 
-> [!NOTE]
+> [!IMPORTANT]
 > Only edit the files inside the `src` directory, files in the `build` directory will be overwritten.
 
 ### Step 2 - Add a store 
