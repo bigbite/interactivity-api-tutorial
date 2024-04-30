@@ -1,10 +1,16 @@
-## Interactivity API Example
+## Tutorial: Getting Started with the Interactivity API
 
-Basic WordPress Interactivity API Demo
+The Interactivity API, introduced in WordPress 6.5, provides a standard way for developers to add interactions to the front end of their blocks. Here we’re going to put together a a simple example using the [create-block](https://developer.wordpress.org/block-editor/reference-guides/packages/packages-create-block/) package as it has a convenient flag for setting up interactive blocks but if you have your own build systems in place, like we do here at Big Bite, then you’ll need to make sure your blocks have the following in their `block.json`:
+
+```
+	"supports": {
+		"interactivity": true
+	},
+```
 
 ## Demo code
 
-All code from the tutorial is available here: [Interactvitiy API Demo](https://github.com/bigbite/interactivity-api-tutorial)
+All of the code from this tutorial is available here: [Interactvitiy API Demo](https://github.com/bigbite/interactivity-api-tutorial)
 
 ### Prerequisites
 
@@ -19,7 +25,7 @@ We're going to make a simple reading mode block, in this example it simply sets 
 
 ### Step 1 - Setup the skeleton block
 
-Create skeleton block using create block with the interactivity flag
+Create a skeleton block using create block with the interactivity flag
 
 ```
 cd  {insert-local-path}/www/wp-content/plugins
@@ -43,11 +49,11 @@ npm run start
 
 ### Step 2 - Add a store 
 
-The block should be scaffolded and recognise your changes. You should see a `view.js` file in the `src` directory. This is the file that will be loaded on the front end when the block is used. The `block.json` file should already include this so you shouldn't need to do anything to make sure it's loaded.
+The block should now be scaffolded and recognise your changes. You should see a `view.js` file in the `src` directory. This is the file that will be loaded on the front end when the block is used. The `block.json` file should already include this so you shouldn't need to do anything to make sure it's loaded.
 
-The interactivy API uses 'stores' to provide actions, essentially just functions that will run when a user interaction occurs. The store can also be used to set `state`, the naming here is confusing if you've used state in other instances such as react and various other libraries. `state` in the context of the interactivity API actually just sets values that the full page may need access to. It might be better to think of this as global state.
+The interactivy API uses 'stores' to provide actions, essentially just functions that will run when a user interaction occurs. The store can also be used to set `state`, the naming here is confusing if you've used state in other instances such as react and various other libraries. `state` in the context of the interactivity API actually just sets values that all blocks on a page may need access to. It might be better to think of `state` as global state.
 
-As we're going to set a reading mode that many other blocks might need to react to we can use state in this instance. Replace the existing `view.js` file with the following to setup the store and add some default state:
+As we're going to set a reading mode that many other blocks might need to react to we can use state in this instance. Replace the existing `view.js` file with the following to setup the interactivity store and add some default state:
 
 ```
 /**
@@ -68,7 +74,7 @@ const { state } = store( 'reading-mode', {
 } );
 ```
 
-All we're doing above is setting state for `isDark` and making it false by default. We're also setting an action to toggle the `isDark` state when the user interacts with the toggle.
+All we're doing in the above code is setting state for `isDark` and making it false by default. We're also setting an action to toggle the `isDark` state when the user interacts with the toggle.
 
 ### Step 2 - Add the render for the toggle button
 
@@ -193,7 +199,7 @@ You should see the toggle animate, so in this simple example you have some basic
 
 [Demo](http://bigbite.im/i/jgh0yT)
 
-### Step 5 - Add another block 
+### Step 5 - Create Notification block 
 
 We're now going to add another block to our project that will also use the global state. For the sake of this tutoiral we're going to create a basic 'notification' block that will change it's styles depending on the global state. It will also toggle it's own state when clicked
 
