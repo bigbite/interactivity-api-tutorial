@@ -27,7 +27,7 @@ We're going to make a simple reading mode block, in this example it simply sets 
 
 [Demo](http://bigbite.im/i/1d5G8f)
 
-### Step 1 - Setup the skeleton block
+### Step 1 - Setup the reading mode block
 
 Create a skeleton block using create block with the interactivity template
 
@@ -54,11 +54,11 @@ npm run start
 > [!IMPORTANT]
 > Only edit the files inside the `src` directory, files in the `build` directory will be overwritten.
 
-### Step 2 - Add a store 
+### Step 2 - Add an interactivity store 
 
 The block should now be scaffolded and recognise your code changes and automatically rebuild the block assets into the `build` directory. You should see a `view.js` file in the `src` directory. This is the file that will be loaded on the front end when the block is used. The `block.json` file should already include this so you shouldn't need to do anything to make sure it's loaded.
 
-The interactivy API uses 'stores' to provide actions, essentially just functions that will run when a user interaction occurs. The store can also be used to set `state`, the naming here is confusing if you've used state in other instances such as react and various other libraries. `state` in the context of the interactivity API actually just sets values that all blocks on a page may need access to. It might be better to think of `state` as global state.
+The interactivy API uses 'stores' to provide actions, essentially just functions that will run when a user interaction occurs. The store can also be used to set `state`, the naming here is confusing if you've used state in other instances such as react and various other libraries. `state` in the context of the interactivity API actually sets values that all blocks on a page may need access to. It might be better to think of `state` as global state.
 
 As we're going to set a reading mode that many other blocks might need to react to we can use state in this instance. Replace the existing `view.js` file with the following to setup the interactivity store and add some default state:
 
