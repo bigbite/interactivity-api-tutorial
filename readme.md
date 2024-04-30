@@ -89,7 +89,6 @@ Open the `render.php` inside the block `src` folder and replace the markup with 
 
 ```
 <?php
-// Generate unique id for aria-controls.
 $unique_id          = wp_unique_id('p-');
 $wrapper_attributes = get_block_wrapper_attributes();
 ?>
@@ -249,7 +248,6 @@ Now add the render for the block, inside the `render.php` for the new block:
 
 ```
 <?php
-// Generate unique id for aria-controls.
 $unique_id          = wp_unique_id('p-');
 $wrapper_attributes = get_block_wrapper_attributes();
 ?>

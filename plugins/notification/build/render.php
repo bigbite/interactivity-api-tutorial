@@ -10,7 +10,6 @@
  * @see https://github.com/WordPress/gutenberg/blob/trunk/docs/reference-guides/block-api/block-metadata.md#render
  */
 
-// Generate unique id for aria-controls.
 $unique_id          = wp_unique_id('p-');
 $wrapper_attributes = get_block_wrapper_attributes();
 
