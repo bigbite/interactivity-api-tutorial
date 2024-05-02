@@ -41,8 +41,8 @@ npx @wordpress/create-block --template @wordpress/create-block-interactive-templ
 
 You will be prompted to customise the plugin:
 
-Use `reading-mode` as the block slug 
-when prompted and here we use something unique for the `internal namespace`
+- Use `reading-mode` as the block slug 
+- When prompted and here we use something unique for the `internal namespace`
 
 http://bigbite.im/i/HwqroH
 
@@ -219,7 +219,10 @@ Firstly add the block:
 npx @wordpress/create-block --template @wordpress/create-block-interactive-template
 ```
 
-use `notification` as the block slug when promopted and here we use `bigbite` for the `internal namespace`
+You will be prompted to customise the plugin;
+
+- Use `notification` as the block slug 
+- Use something unique for the `internal namespace`
 
 Activate the plugin in the dashboard
 
