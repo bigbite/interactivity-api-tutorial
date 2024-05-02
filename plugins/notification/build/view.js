@@ -62,16 +62,16 @@ var __webpack_exports__ = {};
   \*********************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_interactivity__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/interactivity */ "@wordpress/interactivity");
-console.log('loaded');
 /**
  * WordPress dependencies
  */
 
-(0,_wordpress_interactivity__WEBPACK_IMPORTED_MODULE_0__.store)('notification', {
+const {
+  state
+} = (0,_wordpress_interactivity__WEBPACK_IMPORTED_MODULE_0__.store)('notification', {
   actions: {
     toggle: () => {
       const context = (0,_wordpress_interactivity__WEBPACK_IMPORTED_MODULE_0__.getContext)();
-      //const state = getState();
       context.isOpen = !context.isOpen;
     }
   },

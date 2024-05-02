@@ -1,14 +1,12 @@
-console.log('loaded');
 /**
  * WordPress dependencies
  */
 import { store, getContext } from '@wordpress/interactivity';
 
-store( 'notification', {
+const { state } = store( 'notification', {
 	actions: {
 		toggle: () => {
 			const context = getContext();
-			//const state = getState();
 			context.isOpen = ! context.isOpen;
 		},
 	},

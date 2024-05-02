@@ -10,7 +10,7 @@ The Interactivity API, introduced in WordPress 6.5, provides a standard way for 
 
 ## Demo code
 
-All of the code from this tutorial is available here: [Interactvitiy API Demo](https://github.com/bigbite/interactivity-api-tutorial)
+All of the code from this tutorial is available here: [Interactivity API Demo](https://github.com/bigbite/interactivity-api-tutorial)
 
 ### Prerequisites
 
@@ -39,7 +39,12 @@ cd  {insert-local-path}/www/wp-content/plugins
 npx @wordpress/create-block --template @wordpress/create-block-interactive-template
 ```
 
-Use `reading-mode` as the block slug when prompted and here we use `bigbite` for the `internal namespace`
+You will be prompted to customise the plugin:
+
+Use `reading-mode` as the block slug 
+when prompted and here we use something unique for the `internal namespace`
+
+http://bigbite.im/i/HwqroH
 
 Watch the plugin for changes 
 
