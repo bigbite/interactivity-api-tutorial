@@ -432,7 +432,7 @@ When you view the front end of the website, you should now have notification blo
 
 ### Finished!
 
-It's obvious that this simple example could be replicated eaily with some custom JavaScript, however using the interactivity API would provide benefits at scale and the extensive directives supplied with the API could significantly reduce the amount of custom JavaScript you need to write on the front end to respond to common user interactions. Dom manipulation can often be difficult to maintain and embracing the interacrtivity API could reolve many pain points. 
+Obviously this simple example could be easily replicated with some custom JavaScript, however using the Interactivity API offers a number of advantages. In addition to the all-important benefits at scale, the extensive directives provided with the API can significantly reduce the amount of custom JavaScript you need to write on the front end to respond to common user interactions. Dom manipulation can also often be difficult to maintain, which means embracing the Interactivity API could resolve many pain points for you across the longer term, making it a worthwhile option for your upcoming projects.
 
 
 ## Further Reading:
