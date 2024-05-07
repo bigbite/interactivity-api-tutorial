@@ -1,12 +1,16 @@
 ## Tutorial: Getting Started with the Interactivity API
 
-The Interactivity API, introduced in WordPress 6.5, provides a standard way for developers to add interactions to the front end of their blocks. Here we’re going to put together a a simple example using the [create-block](https://developer.wordpress.org/block-editor/reference-guides/packages/packages-create-block/) package as it has a convenient template for setting up interactive blocks but if you have your own build systems in place, like we do here at Big Bite, then you’ll need to make sure your blocks have the following in their `block.json`:
+Ready to get familiar with WordPress’s new Interactivity API? Here we provide a walkthrough build of a simple reading mode block, offering step-by-step guidance and best practice tips from our team.
+
+Introduced in the recently released WordPress 6.5, the Interactivity API provides a standard way for developers to add interactions to the front end of blocks. Here we’re going to put together a simple example using the [create-block](https://developer.wordpress.org/block-editor/reference-guides/packages/packages-create-block/) package, as it has a convenient template for setting up interactive blocks. If you have your own build systems in place - like we do here at Big Bite - then you’ll need to make sure your blocks have the following in their `block.json`:
 
 ```
 	"supports": {
 		"interactivity": true
 	},
 ```
+
+Before you get started, please also note that this demo will only work in WordPress 6.5 (or later versions), and you’ll need Node.js and npm, as well as a local development environment (we recommend [WP ENV](https://developer.wordpress.org/block-editor/getting-started/devenv/get-started-with-wp-env/) or [Local](https://localwp.com/).
 
 ## Demo code
 
@@ -23,7 +27,7 @@ A local development environment - suggestions: [WP ENV](https://developer.wordpr
 
 ### What are we building?
 
-We're going to make a simple reading mode block, in this example it simply sets a `dark mode` state that, we're also going to build a 'notification' block that changes it's own appearance depending on the reading mode state and also handles whether it is expanded or not. 
+In this demo we’re going to make a basic reading mode block that simply sets a `dark mode` state. We’re also going to build a ‘notification’ block that changes its own appearance depending on the reading mode state, and handles whether it’s expanded or not.
 
 [Demo](http://bigbite.im/i/1d5G8f)
 
@@ -61,11 +65,11 @@ npm run start
 
 ### Step 2 - Add an interactivity store 
 
-The block should now be scaffolded and recognise your code changes and automatically rebuild the block assets into the `build` directory. You should see a `view.js` file in the `src` directory. This is the file that will be loaded on the front end when the block is used. The `block.json` file should already include this so you shouldn't need to do anything to make sure it's loaded.
+The block should now be scaffolded, able to recognise your code changes and automatically rebuild the block assets into the `build` directory. You should also now be able to see a `view.js` file in the `src` directory - this is the file that will be loaded on the front end when the block is used. The `block.json` file should already include this,which means you don’t need to do anything to make sure it’s loaded.
 
-The interactivy API uses 'stores' to provide actions, essentially just functions that will run when a user interaction occurs. The store can also be used to set `state`, the naming here is confusing if you've used state in other instances such as react and various other libraries. `state` in the context of the interactivity API actually sets values that all blocks on a page may need access to. It might be better to think of `state` as global state.
+The Interactivity API uses ‘stores’ to provide actions, which are essentially just functions that will run when a user interaction occurs. The store can also be used to set `state`- the naming here is confusing if you’ve used `state` in other instances (such as react and various other libraries), however in this context, state sets values that all blocks on a page may need access to. It might be more helpful to think of `state` as the global state.
 
-As we're going to set a reading mode that many other blocks might need to react to we can use state in this instance. Replace the existing `view.js` file with the following to setup the interactivity store and add some default state:
+As we’re going to set a reading mode that many other blocks might need to react to, we can use state in this instance. Replace the existing `view.js` file with the following to setup the interactivity store, and add some default state:
 
 ```
 /**
@@ -86,11 +90,11 @@ const { state } = store( 'reading-mode', {
 } );
 ```
 
-All we're doing in the above code is setting state for `isDark` and making it false by default. We're also setting an action to toggle the `isDark` state when the user interacts with the toggle.
+All we’re doing in the above code is setting state for `isDark` and making it false by default. We’re also setting an action to toggle the `isDark` state when the user interacts with the toggle.
 
-### Step 2 - Add the render for the toggle button
+### Step 3 - Add the render for the toggle button
 
-Open the `render.php` inside the block `src` folder and replace the markup with the following code, this renders an input and a label for the mode toggle, we will style this later
+Open the `render.php` inside the block `src` folder and replace the markup with the following code, this renders an input and a label for the mode toggle (we will style this later)
 
 ```
 <?php
@@ -108,7 +112,7 @@ $wrapper_attributes = get_block_wrapper_attributes();
 </div>
 ```
 
-At the moment the render has no connection to the interactivity API, we can enable this by using data attributes. Add the data attrbiutes below, these are called `directives` in the API docs:
+At the moment the render has no connection to the interactivity API, we can enable this by using data attributes. Add the data attrbiutes below - these are called `directives` in the API docs:
 
 ```
 <?php
@@ -140,9 +144,9 @@ setMode: () => {
 }
 ```
 
-### Step 3 - Add CSS for the toggle button
+### Step 4 - Add CSS for the toggle button
 
-We won't go through the code here, just add this to the `style.scss` file for the block and you should have a styled toggle:
+We won't go through the code here - just add this to the `style.scss` file for the block, and you should have a styled toggle:
 
 ```
 .wp-block-bigbite-reading-mode input[type=checkbox] {
@@ -205,13 +209,13 @@ In the WordPress dashboard:
 - Save the page
 - View the post / page and click the toggle
 
-You should see the toggle animate, so in this simple example you have some basic functionality that toggles the class on an element basedd on the value of some global state.
+Now when you view the created post/page and click the toggle, you should see the toggle animate. In this simple example, you’ve built some basic functionality that toggles the class on an element based on the value of some global state.
 
 Preview of what we're building: [Demo](http://bigbite.im/i/jgh0yT)
 
-### Step 5 - Create Notification block 
+### Step 6 - Create Notification block 
 
-We're now going to add another block to our project that will also use the global state. For the sake of this tutoiral we're going to create a basic 'notification' block that will change it's styles depending on the global state. It will also toggle it's own state when clicked
+We’re now going to add another block to our project that will also use the global state. For the sake of this tutorial, we’re going to create a basic ‘notification’ block that will change its styles depending on the global state. It will also toggle its own state when clicked.
 
 Firstly add the block:
 
@@ -224,9 +228,9 @@ You will be prompted to customise the plugin;
 - Use `notification` as the block slug 
 - Use something unique for the `internal namespace`
 
-Activate the plugin in the dashboard
+Next, activate the plugin in the dashboard.
 
-Add a store for your block, in the `view.js` file for the block replace the existing code with the following:
+Add a store for your block, and in the `view.js` file for the block, replace the existing code with the following:
 
 ```
 import { store, getContext } from '@wordpress/interactivity';
@@ -251,7 +255,7 @@ store( 'notification', {
 
 This will toggle the `isOpen` status and also runs a callback so you can see in the console when any value changes
 
-Now add the render for the block, inside the `render.php` for the new block:
+Now inside the `render.php` for the new block, add the render for the block:
 
 ```
 <?php
@@ -372,7 +376,7 @@ Add some styles for the block in the `styles.scss` for the block:
 }
 ```
 
-To allow you to add inner blocks to the notification replace the contents of the `src/edit.js` for your block, this will allow you to add some custom text for your notification content:
+To allow you to add inner blocks to the notification, replace the contents of the `src/edit.js` for your block - this will allow you to add some custom text for your notification content:
 
 ```
 import { useBlockProps, InnerBlocks } from '@wordpress/block-editor';
@@ -388,7 +392,7 @@ export default function Edit( { attributes, setAttributes } ) {
 }
 ```
 
-Finally add a `save.js` file and include it in the index.js so that the inner block content is saved:
+Finally, add a `save.js` file and include it in the `index.js` so that the inner block content is saved:
 
 `save.js`:
 
@@ -414,7 +418,7 @@ registerBlockType( metadata.name, {
 } );
 ```
 
-### Step 6 - Test the blocks
+### Step 7 - Test the blocks
 
 http://bigbite.im/v/Q1hJer
 
@@ -422,8 +426,9 @@ http://bigbite.im/v/Q1hJer
 - Add some notifications blocks to the page, add some content and save the page
 - View the front end of the website
 
-You should now have notification blocks that you can expand and close, the reading mode toggle should toggle the styles on the notifcation.
+When you view the front end of the website, you should now have notification blocks that you can expand and close, and the reading mode toggle should toggle the styles on the notifIcation.
 
+[Final Demo](http://bigbite.im/v/Q1hJer)
 
 ### Finished!
 
